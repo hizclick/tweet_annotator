@@ -15,10 +15,10 @@ window.onhashchange=function(){window.location.hash="no-back-button";}
 </head>
 <body>
 	<?php 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$db = "survey";
+	$servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+	$username = "kcpqmduod16lyyh2";
+	$password = "dahm3oxh2cakdjm8";
+	$db = "vnb273g86ehntst1";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
 
