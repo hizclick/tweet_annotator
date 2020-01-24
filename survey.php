@@ -48,7 +48,7 @@ if ($conn->connect_error) {
            $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
-	   echo $text;
+	   echo "this is " . $text;
            $id = $row['tweet_id'];
            $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'");
            $row2 = mysqli_fetch_array($result);
