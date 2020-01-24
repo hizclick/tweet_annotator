@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $uname = $_POST['uname'];
             $response = $_POST['sentiment'];
             $id = $_POST['id'];
-	    echi $id
+	    echo $id
            $sql = "INSERT INTO sentiment (tweet_id, user_name, sentiment) VALUES ('$id', '$uname', '$response')";
            if ($conn->query($sql) === TRUE) {
             $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
