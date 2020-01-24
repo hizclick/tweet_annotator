@@ -30,9 +30,10 @@ window.onhashchange=function(){window.location.hash="no-back-button";}
 </head>
 <body>
     <?php
-	echo "1";
     if(isset($_GET['username'])){
        $uname =  $_GET['username'];
+	   	echo "1";
+
     }
 	$servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
 	$username = "kcpqmduod16lyyh2";
