@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<div class="card bg-success text-center border border-danger" style="width: 100rem; margin: 0 auto; float: none;  margin-bottom: 10px;">
   <div class="card-body" style="width: 100rem; margin: 0 auto; float: none;  margin-bottom: 10px; margin-top: 10%">
   	<p style="font-size:26px;   line-height: 1.5;   text-align: justify; padding: 10%;">
-		<spna style="font weight: bold"; text-align: center;>እንኳን ደህና መጡ<b></span>ከታች ባለው ሳጥን ውስጥ የተጠቃሚ ስም በማስገባት ቀጥሎ ያለውን ፎርም ይሙሉ። ሰለ ትብብሮ አናመስግናለን። <br>
+		<spna style="font weight: bold"; text-align: center;>እንኳን ደህና መጡ</span>ከታች ባለው ሳጥን ውስጥ የተጠቃሚ ስም በማስገባት ቀጥሎ ያለውን ፎርም ይሙሉ። ሰለ ትብብሮ አናመስግናለን። <br>
 
 			<b>መመሪያ:</b><br>
     ፩. ጽሁፉ አዎንታዊ ከሆነ የሚለውን ይምረጡጥ<br>  
@@ -54,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ፫. አዎንታዊም አሉታዊም ካልሆነ ገለልተኛ የሚለውን ይምረጡ<br>
     ፭. ጽሁፉ አዎንታዊም አሉታዊም ከሆነ ቅልቅል የሚለውን ይምረጡ<br>
 
-አናመሰግናለን!</p>
   	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<input type="text" name="username" class="form-control input-lg" style="width: 400px; margin: 0 auto; float: none;  margin-bottom: 10px; "><br>
 		<input type="submit"  name="login" value="Login" class="btn btn-lg btn-primary" style="margin-bottom: 10%">
