@@ -45,7 +45,7 @@ window.onhashchange=function(){window.location.hash="no-back-button";}
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-           $result = mysqli_query($conn,"SELECT * FROM tweets order by RAND() limit 1");
+           $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
 	   echo "this is " . $text;
