@@ -30,6 +30,7 @@ window.onhashchange=function(){window.location.hash="no-back-button";}
 </head>
 <body>
     <?php
+	echo 1";
     if(isset($_GET['username'])){
        $uname =  $_GET['username'];
     }
