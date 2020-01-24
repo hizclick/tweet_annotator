@@ -83,10 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <input type="text" name="uname" style="display: none; background-color: #5cb85c;" value=<?php if(isset($_GET['username'])){echo $_GET['username'];}else if(isset($uname)){echo $uname;}?>>
             <input type="text" name="id" style="display: none; background-color: #5cb85c;" value=<?php if(isset($id)){echo $id;}?>>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">Positive</label>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">Negative</label>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral"> Neutral</label>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="mix" type="radio" name="sentiment" value="mixed"> Mixed </label>
+            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
+            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
+            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
+            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="mix" type="radio" name="sentiment" value="ቅልቅል"></label>
             <?php if(isset($error)){echo $error;}?><br><br>
             <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">Save</button>
         </form>
