@@ -32,7 +32,6 @@ window.onhashchange=function(){window.location.hash="no-back-button";}
     <?php
     if(isset($_GET['username'])){
        $uname =  $_GET['username'];
-	   	echo "1";
 
     }
 	$servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
@@ -58,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $uname = $_POST['uname'];
             $response = $_POST['sentiment'];
             $id = $_POST['id'];
+	    echi $id
            $sql = "INSERT INTO sentiment (tweet_id, user_name, sentiment) VALUES ('$id', '$uname', '$response')";
            if ($conn->query($sql) === TRUE) {
             $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
