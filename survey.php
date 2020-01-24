@@ -33,10 +33,10 @@ window.onhashchange=function(){window.location.hash="no-back-button";}
     if(isset($_GET['username'])){
        $uname =  $_GET['username'];
     }
-	$servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-	$username = "kcpqmduod16lyyh2";
-	$password = "dahm3oxh2cakdjm8";
-	$db = "vnb273g86ehntst1";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "survey";
 // Create connection
     $conn = new mysqli($servername, $username, $password, $db);
 
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div id="myform card-body" style="width: 200rem; margin: 0 auto; float: none;  margin-bottom: 10px; margin-top: 10%">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <input type="text" name="tweet" style="border: none; resize: none; font-size: 34px; line-height: 1.5; color: white; text-align: justify;" disabled>
-            <div style="width: 50rem; float: center;">
+            <div style="width: 50rem; float: center; margin-left: 700px">
                 <p style="color: white; font-size: 28px; padding-left: 100px;"><?php if(isset($text)){echo $text;}?></p><br>
             </div>
             <input type="text" name="uname" style="display: none; background-color: #5cb85c;" value=<?php if(isset($_GET['username'])){echo $_GET['username'];}else if(isset($uname)){echo $uname;}?>>
