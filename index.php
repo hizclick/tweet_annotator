@@ -45,14 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	?>
 	<div class="card bg-success text-center border border-danger" style="width: 100rem; margin: 0 auto; float: none;  margin-bottom: 10px;">
   <div class="card-body" style="width: 100rem; margin: 0 auto; float: none;  margin-bottom: 10px; margin-top: 10%">
-  	<p style="font-size: 30px;   line-height: 1.5;   text-align: justify; padding: 10%;">
-	  		እንኳን ደህና መጡ<br> ከታች ባለው ሳጥን ውስጥ የተጠቃሚ ስም በማስገባት ቀጥሎ ያለውን ፎርም ይሙሉ። ሰለ ትብብሮ አናመስግናለን። <br>
+  	<p style="font-size:26px;   line-height: 1.5;   text-align: justify; padding: 10%;">
+		<spna style="font weight: bold"; text-align: center;>እንኳን ደህና መጡ<b></span>ከታች ባለው ሳጥን ውስጥ የተጠቃሚ ስም በማስገባት ቀጥሎ ያለውን ፎርም ይሙሉ። ሰለ ትብብሮ አናመስግናለን። <br>
 
-መመሪያ=<br>
-    ፩ ጽሁፉ አወንታዊ ከሆነ አወንታዊ የሚለውን ይምረጡጥ<br>  
-    ፪ ጽሁፉ አሉታዊ ከሆነ አሉታዊ የሚለውን ይምረጡጥ<br>
-    ፫ አወንታዊም አሉታዊም ካልሆነ ገለልተኛ የሚለውን ይምረጡ<br>
-    ፭ ጽሁፉ ሁለቱንም ካልሆነ ቅልቅል የሚለውን ይምረጡ<br>
+			<b>መመሪያ:</b><br>
+    ፩. ጽሁፉ አዎንታዊ ከሆነ የሚለውን ይምረጡጥ<br>  
+    ፪. ጽሁፉ አሉታዊ ከሆነ አሉታዊ የሚለውን ይምረጡጥ<br>
+    ፫. አዎንታዊም አሉታዊም ካልሆነ ገለልተኛ የሚለውን ይምረጡ<br>
+    ፭. ጽሁፉ አዎንታዊም አሉታዊም ከሆነ ቅልቅል የሚለውን ይምረጡ<br>
 
 አናመሰግናለን!</p>
   	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
