@@ -68,7 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'");
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
-            } 
+            } else{
+	   	echo "nop";
+	   }
 
 }
     ?>
