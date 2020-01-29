@@ -1,5 +1,5 @@
 <head runat="server">
-    <title></title>
+    <title>Sentiment Annotator</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Dialog - Default functionality</title>
@@ -15,31 +15,28 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-         <script>
-	     function close(){
-	          window.exit();
-	     }
-	 </script>
-  <style type="text/css">
-      input[type="text"], textarea {
-  		background-color : #5cb85c; 
-		}
-  </style>
+  <script src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <?php
+
+//declaring connection variables
   	$ip =  $_SERVER['REMOTE_ADDR'];
-	$servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-	$username = "kcpqmduod16lyyh2";
-	$password = "dahm3oxh2cakdjm8";
-	$db = "vnb273g86ehntst1";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "survey";
 // Create connection
+
     $conn = new mysqli($servername, $username, $password, $db);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+//for the first time when the user logged in to the system 
+if(!isset($_POST['val'])){
            $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
@@ -47,43 +44,69 @@ if ($conn->connect_error) {
            $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'");
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
+           $val = 1;
+         }
 
+//after the client click on save button
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $ip = $_POST['ip'];
-            $response = $_POST['sentiment'];
-            $id = $_POST['id'];
-	    $sql = "INSERT INTO sentiment (tweet_id, username, sentiment) VALUES ('$id', '$ip', '$response')";
-           if ($conn->query($sql) === TRUE) {
+    if(isset($_POST['sentiment'])){
+          
+           $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1"); //select rows randomly from the table 'tweet'
+           $row = mysqli_fetch_array($result);
+           $text = $row['tweet'];
+           $id = $row['tweet_id'];
+           $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
+           $row2 = mysqli_fetch_array($result);
+           $tweet_id = $row2['tweet_id'];
+           $ip = $_POST['ip'];
+           $response = $_POST['sentiment'];
+           $id = $_POST['id'];
+           $sql = "INSERT INTO sentiment (tweet_id, username, sentiment) VALUES ('$id', '$ip', '$response')"; // insert the final result to the table called sentiment
+           if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
            $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
            $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'");
            $row2 = mysqli_fetch_array($result);
-           $tweet_id = $row2['tweet_id'];
+           $tweet_id = $row2['tweet_id'];    
+    }
             }
+      //if one of the radio buttons are not selected show error message
+      else{
+        $text = $_POST['txt'];
+        $error = "Please choose one button";
+    }
        }
     ?>
-            <div id="mytext">    
-            </div>
-            <div class="card text-center border border-danger" style="width: 200rem; margin: 0 auto; float: none;  margin-bottom: 10px; background-color: #5cb85c;">
-            <div id="myform card-body" style="width: 200rem; margin: 0 auto; float: none;  margin-bottom: 10px; margin-top: 10%">
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <input type="text" name="tweet" style="border: none; resize: none; font-size: 34px; line-height: 1.5; color: white; text-align: justify;" disabled>
-            <div style="width: 50rem; float: center; margin-left: 700px">
-                <p style="color: white; font-size: 28px; padding-left: 100px;"><?php if(isset($text)){echo $text;}?></p><br>
-            </div>
-            <input type="text" name="ip" style="display: none; background-color: #5cb85c;" value=<?php if(isset($_GET['ip'])){echo $_GET['ip'];}else if(isset($ip)){echo $ip;}?>>
-            <input type="text" name="id" style="display: none; background-color: #5cb85c;" value=<?php if(isset($id)){echo $id;}?>>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
-            <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="mix" type="radio" name="sentiment" value="mixed">ቅልቅል</label>
-            <?php if(isset($error)){echo $error;}?><br><br>
-            <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">Save</button>
-            <button onclick="close" type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">Close</button>
-        </form>
-            </div>
+    <!-- end of php
+      start of html -->
+    <div id="mytext">    
+      <p>
+        <u><b>መመሪያ:</b></u><br>
+          ፩. ጽሁፉ አዎንታዊ ከሆ <b>አዎንታዊ</b> የሚለውን ይምረጡጥ<br>  
+          ፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡጥ<br> 
+          ፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ<br>
+          ፭. ጽሁፉ አዎንታዊም አሉታዊም ከሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ<br>
+      </p>
+      <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
+            <div id="myform card-body">
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                  <textarea type="text" name="txt" id="txt"><?php if(isset($text)){echo $text;}?></textarea>
+                  <div id="tweet">
+                    <p><?php if(isset($text)){echo $text;}?></p><br>
+                    <input type="text" name="ip" class="in"  value=<?php if(isset($_GET['ip'])){echo $_GET['ip'];}else if(isset($ip)){echo $ip;}?>>
+                    <input type="text" name="id"  class="in" value=<?php if(isset($id)){echo $id;}?>>
+                    <input type="text" name="val" class="in" value=<?php if(isset($val)){echo $val;}?>>
+                    <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
+                    <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
+                    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
+                    <label class="radio-inline"><input class="radio-inline" id="mix" type="radio" name="sentiment" value="mixed">ቅልቅል</label><br>
+                    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">መዝግብ</button>
+                    <?php if(isset($error)){echo $error;}?><br>
+                  </div>
+                </form>
+          </div>
         </div>
-    </form>
 </body>
+<!-- end of html -->
