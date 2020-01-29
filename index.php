@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <script>
+	     function close(){
+	          window.exit();
+	     }
+	 </script>
   <style type="text/css">
       input[type="text"], textarea {
   		background-color : #5cb85c; 
@@ -76,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label class="radio-inline" style="color: white; font-size: 22px"><input class="radio-inline" id="mix" type="radio" name="sentiment" value="mixed">ቅልቅል</label>
             <?php if(isset($error)){echo $error;}?><br><br>
             <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">Save</button>
+            <button onclick="close" type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">Close</button>
         </form>
             </div>
         </div>
