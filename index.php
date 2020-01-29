@@ -1,5 +1,5 @@
 <head runat="server">
-    <title>Sentiment Annotator</title>
+    <title></title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Dialog - Default functionality</title>
@@ -23,10 +23,10 @@
 
 //declaring connection variables
   	$ip =  $_SERVER['REMOTE_ADDR'];
-    $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-	$username = "kcpqmduod16lyyh2";
-	$password = "dahm3oxh2cakdjm8";
-	$db = "vnb273g86ehntst1";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "survey";
 // Create connection
 
     $conn = new mysqli($servername, $username, $password, $db);
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       //if one of the radio buttons are not selected show error message
       else{
         $text = $_POST['txt'];
-        $error = "Please choose one button";
+        $error = "* እባክዎን አንዱን ምርጫ ይምረጡ";
     }
        }
     ?>
@@ -103,8 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
                     <label class="radio-inline"><input class="radio-inline" id="mix" type="radio" name="sentiment" value="mixed">ቅልቅል</label><br>
                     <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">መዝግብ</button>
-                    <?php if(isset($error)){echo $error;}?><br>
-                  </div>
+                    <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
                 </form>
           </div>
         </div>
