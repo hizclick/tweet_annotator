@@ -11,26 +11,19 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-window.location.hash="no-back-button";
-window.location.hash="Again-No-back-button";//again because google chrome don't insert first hash into history
-window.onhashchange=function(){window.location.hash="no-back-button";}
-</script> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
       input[type="text"], textarea {
-
-  background-color : #5cb85c; 
-
-}
+  		background-color : #5cb85c; 
+		}
   </style>
 </head>
 <body>
     <?php
-  $ip =  $_SERVER['REMOTE_ADDR'];
+  	$ip =  $_SERVER['REMOTE_ADDR'];
 	$servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
 	$username = "kcpqmduod16lyyh2";
 	$password = "dahm3oxh2cakdjm8";
@@ -56,8 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id = $_POST['id'];
 	    $sql = "INSERT INTO sentiment (tweet_id, username, sentiment) VALUES ('$id', '$ip', '$response')";
            if ($conn->query($sql) === TRUE) {
-	   echo $ip;
-            $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
+           $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
@@ -67,8 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
        }
     ?>
-            <div id="mytext">
-                 
+            <div id="mytext">    
             </div>
             <div class="card text-center border border-danger" style="width: 200rem; margin: 0 auto; float: none;  margin-bottom: 10px; background-color: #5cb85c;">
             <div id="myform card-body" style="width: 200rem; margin: 0 auto; float: none;  margin-bottom: 10px; margin-top: 10%">
