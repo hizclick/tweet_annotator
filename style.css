@@ -1,0 +1,56 @@
+input[type="text"], textarea {
+  		background-color : #5cb85c; 
+		}
+#mytext p{
+		font-size:14px;   
+		line-height: 1.5;  
+		text-align: justify; 
+		padding: 5%;
+}
+#top{
+	width: 60rem; 
+	margin: 0; 
+	margin-left: 30%; 
+	float: auto; 
+	background-color: #5cb85c;
+}
+#myform card-body{
+	width: 50rem;
+	margin: 0 auto; 
+	float: none;  
+	margin-top: 0%
+}
+label{
+	color: white; 
+	font-size: 18px; 
+	text-align: center; 
+	margin-left: 10%
+}
+#txt{
+	display: none;
+}
+#tweet{
+	width: 50rem;
+	text-align: center
+}
+#ip{
+	display: none;
+	background-color: #5cb85c;
+}
+.in{
+	display: none; 
+	background-color: #5cb85c;
+}
+#tweet p{
+	color: white; 
+	font-size: 22px; 
+	padding-left: 100px;
+}
+label{
+	color: white; 
+	font-size: 18px; 
+	text-align: center;
+}
+button{
+	margin: 10%;
+}
