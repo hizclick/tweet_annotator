@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $tweet_id = $row2['tweet_id'];
            $ip = $_POST['ip'];
            $country = $ip->geoplugin_countryName;
+	   echo $country;
 	   
 	   $response = $_POST['sentiment'];
            $id = $_POST['id'];
