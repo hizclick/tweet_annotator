@@ -51,22 +51,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['sentiment'])){
           
            $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1"); //select rows randomly from the table 'tweet'
-           $row = mysqli_fetch_array($result);
+           
+	   $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
-           $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
+           
+	   $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
            $ip = $_POST['ip'];
-           $response = $_POST['sentiment'];
+           $country = $ip->geoplugin_countryName;
+	   
+	   $response = $_POST['sentiment'];
            $id = $_POST['id'];
-           $sql = "INSERT INTO sentiment (tweet_id, username, sentiment) VALUES ('$id', '$ip', '$response')"; // insert the final result to the table called sentiment
+           $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id', '$ip', $country , '$response')"; // insert the final result to the table called sentiment
            if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
-           $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
+           
+	   $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
-           $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'");
+           
+	   $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'");
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];    
     }
