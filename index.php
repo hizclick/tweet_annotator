@@ -60,7 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
            $ip = $_POST['ip'];
-           $country = $ip->geoplugin_countryName;
+	   require_once('geoplugin.class.php');
+	   $geoplugin = new geoPlugin();
+           $country = $geoplugin->countryName;
 	   echo $country;
 	   echo "hi";
 	    
