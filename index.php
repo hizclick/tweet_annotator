@@ -62,7 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $ip = $_POST['ip'];
            $country = $ip->geoplugin_countryName;
 	   echo $country;
-	   
+	   echo "hi";
+	    
 	   $response = $_POST['sentiment'];
            $id = $_POST['id'];
            $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id', '$ip', $country , '$response')"; // insert the final result to the table called sentiment
