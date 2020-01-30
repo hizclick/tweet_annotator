@@ -20,7 +20,7 @@
 </head>
 <body>
     <?php
-
+	require_once('geoplugin.class.php');
 //declaring connection variables
     $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
 	$username = "kcpqmduod16lyyh2";
@@ -60,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
            $ip = $_POST['ip'];
-	   require_once('geoplugin.class.php');
 	   $geoplugin = new geoPlugin();
            $country = $geoplugin->countryName;
 	   echo $country;
