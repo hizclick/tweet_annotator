@@ -1,5 +1,5 @@
 <head runat="server">
-    <title></title>
+    <title>Tweet annotator</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Dialog - Default functionality</title>
