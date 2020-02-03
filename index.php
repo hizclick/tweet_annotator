@@ -18,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script>
 	  function cls(){
-	      alert("hi")
+			confirm("Are you sure you want to close?");
 	  }
   </script>
 </head>
