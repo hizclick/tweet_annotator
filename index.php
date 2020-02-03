@@ -18,8 +18,9 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script>
 	  function cls(){
-			confirm("Are you sure you want to close?");
-	  }
+		  if (confirm("Are you sure you want to close?") == true) {
+    				return true;
+  			} 
   </script>
 </head>
 <body>
