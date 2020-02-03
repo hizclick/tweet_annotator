@@ -19,7 +19,7 @@
   <script>
 	  function cls(){
 		  if (confirm("Are you sure you want to close?") == true) {
-    				return true;
+    				window.open("final.html")
   			} 
   </script>
 </head>
