@@ -72,7 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	   $response = $_POST['sentiment'];
            $id = $_POST['id'];
            $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id', '$ip', $country , '$response')"; // insert the final result to the table called sentiment
-           if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
+           
+	    if($sql){
+	    	print("hihih")
+	    }
+	    
+	    if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
            
 	   $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
