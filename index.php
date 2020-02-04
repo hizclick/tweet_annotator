@@ -69,14 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $country =  $ipdat->geoplugin_countryName;
 
 	   $response = $_POST['sentiment'];
-	   print("this is" .$id);
-           $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES (10,5,4,5)"; // insert the final result to the table called sentiment
+           $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id',5,4,5)"; // insert the final result to the table called sentiment
            
-	    if($sql){
-	    	print("hihih");
-	    }else{
-	        print("error");
-	    }
 	    
 	    if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
            
@@ -85,9 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $text = $row['tweet'];
            $id = $row['tweet_id'];
            
-	   $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'");
-           $row2 = mysqli_fetch_array($result);
-           $tweet_id = $row2['tweet_id'];    
     }
             }
       //if one of the radio buttons are not selected show error message
