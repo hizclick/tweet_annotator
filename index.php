@@ -75,6 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
 	    if($sql){
 	    	print("hihih")
+	    }else{
+	        print("error")
 	    }
 	    
 	    if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
