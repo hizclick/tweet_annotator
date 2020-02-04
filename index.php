@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     			}
     
 
-	   echo("this is " .$ip]);
+	   echo("this is " .$ip);
 	   
 	   $ipdat = @json_decode(file_get_contents( 
             "http://www.geoplugin.net/json.gp?ip=" . $ip)); 
