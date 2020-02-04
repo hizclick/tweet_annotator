@@ -82,8 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "http://www.geoplugin.net/json.gp?ip=" . $ip)); 
            $country =  $ipdat->geoplugin_countryName;
 	   
-	   echo("this is " .$country);
-
 	   $response = $_POST['sentiment'];
            $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id','$ip','$country','$response')"; // insert the final result to the table called sentiment
            
