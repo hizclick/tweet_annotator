@@ -64,9 +64,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	   $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
-	   $ip = $_GET['ip'];
+    	   if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+           //ip from share internet
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+    	   	}elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        		//ip pass from proxy
+        		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+   	 		}else{
+        			$ip = $_SERVER['REMOTE_ADDR'];
+    			}
 
-	   echo("this is " .$_SERVER['REMOTE_ADDR']);
+	   echo("this is " .$ip]);
 	   
 	   $ipdat = @json_decode(file_get_contents( 
             "http://www.geoplugin.net/json.gp?ip=" . $ip)); 
