@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $country =  $ipdat->geoplugin_countryName;
 
 	   $response = $_POST['sentiment'];
-           $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id',5,4,5)"; // insert the final result to the table called sentiment
+           $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id','$ip','$xountry','$response')"; // insert the final result to the table called sentiment
            
 	    
 	    if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
