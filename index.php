@@ -64,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	   $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
-	   $ip = $_POST['ip'];
-	   print($ip);
+	   $ip = $_GET['ip'];
+	   echo($ip);
 	   $ipdat = @json_decode(file_get_contents( 
             "http://www.geoplugin.net/json.gp?ip=" . $ip)); 
            $country =  $ipdat->geoplugin_countryName;
