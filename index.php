@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	   $response = $_POST['sentiment'];
            $id = $_POST['id'];
-           $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id', '$ip', $country , '$response')"; // insert the final result to the table called sentiment
+           $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$idkk', '$ip', $country , '$response')"; // insert the final result to the table called sentiment
            
 	    if($sql){
 	    	print("hihih");
