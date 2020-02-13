@@ -87,7 +87,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
 	    
 	    if ($conn->query($sql) === TRUE) {
-           
+             $sql2 =  "DELETE FROM `tweet` WHERE `tweet_id` = '".$id."'" ; // after inserting the tweet in the response table remove that specific text from the original tweet table. 
+
 	   $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
