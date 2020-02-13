@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id','$ip','$country','$response')"; // insert the final result to the table called sentiment
            
 	    
-	    if ($conn->query($sql) === TRUE) { //do the sabove if data is successfuly insereted into the database
+	    if ($conn->query($sql) === TRUE) {
            
 	   $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
     }
             }
-      //if one of the radio buttons are not selected show error message
+      //if one of the radio button is not selected show error message
       else{
         $text = $_POST['txt'];
         $error = "* እባክዎን አንዱን ምርጫ ይምረጡ";
