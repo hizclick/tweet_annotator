@@ -52,15 +52,19 @@ if(!isset($_POST['val'])){
          }
 
 //after the client click on save button
+	
+	
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['sentiment'])){
           
-           $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1"); //select rows randomly from the table 'tweet'
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.count<3 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
            
 	   $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
            
+	   
+	    
 	   $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
@@ -82,9 +86,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "http://www.geoplugin.net/json.gp?ip=" . $ip)); 
            $country =  $ipdat->geoplugin_countryName;
 	   
+	   $text = $row['tweet'];
+ 	    
 	   $response = $_POST['sentiment'];
            $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id','$ip','$country','$response')"; // insert the final result to the table called sentiment
-           
+           $sql2 = mysql_query("
+    				UPDATE tweet
+    				SET points = points + 1
+    				WHERE tweet.tweet = '".$text."'
+				");
+	    $conn->query($sql2)
 	    
 	    if ($conn->query($sql) === TRUE) {
              $sql2 =  "DELETE FROM `tweet` WHERE `tweet_id` = '".$id."'" ; // after inserting the tweet in the response table remove that specific text from the original tweet table. 
@@ -125,7 +136,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
-                    <label class="radio-inline"><input class="radio-inline" id="mix" type="radio" name="sentiment" value="mixed">ቅልቅል</label><br>
                     <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">መዝግብ</button>
 		    <button type="button" class="btn btn-lg btn-primary" onclick="cls()" style="margin: 10%;">ዝጋ</button>
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
