@@ -57,7 +57,7 @@ if(!isset($_POST['val'])){
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['sentiment'])){
           
-           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.count<3 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.counter<3 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
            
 	   $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
@@ -90,16 +90,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  	    
 	   $response = $_POST['sentiment'];
            $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id','$ip','$country','$response')"; // insert the final result to the table called sentiment
-           $sql2 = mysql_query("
-    				UPDATE tweet
-    				SET points = points + 1
-    				WHERE tweet.tweet = '".$text."'
-				");
-	    $conn->query($sql2);
+           $sql2 ="UPDATE tweet SET counter = counter + 1 WHERE tweet.tweet = '".$text."'";
+	    
+        $conn->query($sql2);
 	    
 	    if ($conn->query($sql) === TRUE) {
-             $sql2 =  "DELETE FROM `tweet` WHERE `tweet_id` = '".$id."'" ; // after inserting the tweet in the response table remove that specific text from the original tweet table. 
-
 	   $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
