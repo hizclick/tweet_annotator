@@ -41,7 +41,7 @@ if ($conn->connect_error) {
 }
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
-           $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE counter<3 order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
