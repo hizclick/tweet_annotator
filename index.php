@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     				SET points = points + 1
     				WHERE tweet.tweet = '".$text."'
 				");
-	    $conn->query($sql2)
+	    $conn->query($sql2);
 	    
 	    if ($conn->query($sql) === TRUE) {
              $sql2 =  "DELETE FROM `tweet` WHERE `tweet_id` = '".$id."'" ; // after inserting the tweet in the response table remove that specific text from the original tweet table. 
@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="val" class="in" value=<?php if(isset($val)){echo $val;}?>>
                     <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
-                    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
+                    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label><br>
                     <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">መዝግብ</button>
 		    <button type="button" class="btn btn-lg btn-primary" onclick="cls()" style="margin: 10%;">ዝጋ</button>
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
