@@ -117,7 +117,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           ፩. ጽሁፉ አዎንታዊ ከሆነ <b>አዎንታዊ</b> የሚለውን ይምረጡ<br>  
           ፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡ<br> 
           ፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ<br>
-          ፭. ጽሁፉ አዎንታዊም አሉታዊም ከሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ<br>
       </p>
       <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
             <div id="myform card-body">
