@@ -7,6 +7,28 @@ input[type="text"], textarea {
 		text-align: justify; 
 		padding: 5%;
 }
+.progress {
+  background: black;
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  margin-left: 75%;
+  display: flex;
+  height: 50px;
+  width: 200px;
+  margin-top: 100px;
+}
+
+.progress-value {
+  animation: load 3s normal forwards;
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: #fff;
+  height: 30px;
+  width: 0;
+}
 #top{
 	width: 60rem; 
 	margin: 0; 
