@@ -20,6 +20,7 @@ input[type="text"], textarea {
 	float: none;  
 	margin-top: 0%
 }
+
 label{
 	color: white; 
 	font-size: 18px; 
@@ -27,7 +28,7 @@ label{
 	margin-left: 10%
 }
 #txt{
-	display: none;
+	color: white;
 }
 #tweet{
 	width: 50rem;
@@ -53,4 +54,8 @@ label{
 }
 button{
 	margin: 10%;
+}
+#tweet_txt{
+	color: !important red;
+	text-align: !important center;
 }
