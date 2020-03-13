@@ -54,6 +54,9 @@ $sum = $row['value_sum'];
 </style>
 </head>
 <body>
+ <div class="progress">
+  <div class="progress-value"></div>
+	</div>
     <?php
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
