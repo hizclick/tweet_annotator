@@ -1,3 +1,25 @@
+<html>
+<?php
+//declaring connection variables
+    $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+  $username = "kcpqmduod16lyyh2";
+  $password = "dahm3oxh2cakdjm8";
+  $db = "vnb273g86ehntst1";
+// Create connection
+
+    $conn = new mysqli($servername, $username, $password, $db);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$res = mysqli_query($conn,'SELECT SUM(counter) AS value_sum FROM tweet'); 
+$row = mysqli_fetch_assoc($res);
+$sum = $row['value_sum']; 
+
+
+?>
+
 <head runat="server">
     <title>Tweet annotator</title>
     <meta charset="utf-8">
@@ -23,22 +45,16 @@
   			} 
 	  }
   </script>
+  <style type="text/css">
+  
+@keyframes load {
+  0% { width: 0; }
+  100% { width: <?php echo ($sum*100)/9000;?> }
+}
+</style>
 </head>
 <body>
     <?php
-//declaring connection variables
-    $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-	$username = "kcpqmduod16lyyh2";
-	$password = "dahm3oxh2cakdjm8";
-	$db = "vnb273g86ehntst1";
-// Create connection
-
-    $conn = new mysqli($servername, $username, $password, $db);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
            $result = mysqli_query($conn,"SELECT * FROM tweet WHERE counter<3 order by RAND() limit 1");
@@ -131,7 +147,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label><br>
                     <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">መዝግብ</button>
-		    <button type="button" class="btn btn-lg btn-primary" onclick="cls()" style="margin: 10%;">ዝጋ</button>
+                    <button type="button" class="btn btn-lg btn-danger" onclick="cls()" style="margin-left: 100%">ዝጋ</button>
+
+
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
                 </form>
           </div>
