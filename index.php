@@ -1,24 +1,3 @@
-<html>
-<?php
-//declaring connection variables
-    $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-  $username = "kcpqmduod16lyyh2";
-  $password = "dahm3oxh2cakdjm8";
-  $db = "vnb273g86ehntst1";
-// Create connection
-
-    $conn = new mysqli($servername, $username, $password, $db);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$res = mysqli_query($conn,'SELECT SUM(counter) AS value_sum FROM tweet'); 
-$row = mysqli_fetch_assoc($res);
-$sum = $row['value_sum']; 
-
-
-?>
 <head runat="server">
     <title>Tweet annotator</title>
     <meta charset="utf-8">
@@ -37,30 +16,32 @@ $sum = $row['value_sum'];
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
-
-<style type="text/css">
-  
-@keyframes load {
-  0% { width: 0; }
-  100% { width: <?php echo ($sum*100)/9000;?> }
-}
-</style>
   <script>
-    function cls(){
-      if (confirm("Are you sure you want to close?") == true) {
-          location.replace("final.html");
-        } 
-    }
+	  function cls(){
+		  if (confirm("Are you sure you want to close?") == true) {
+    				window.open("final.html")
+  			} 
+	  }
   </script>
 </head>
 <body>
-  <div class="progress">
-  <div class="progress-value"></div>
-</div>
-    <?php 
+    <?php
+//declaring connection variables
+    $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+	$username = "kcpqmduod16lyyh2";
+	$password = "dahm3oxh2cakdjm8";
+	$db = "vnb273g86ehntst1";
+// Create connection
+
+    $conn = new mysqli($servername, $username, $password, $db);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
-           $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE counter<3 order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
@@ -71,55 +52,50 @@ if(!isset($_POST['val'])){
          }
 
 //after the client click on save button
-  
-  
+	
+	
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['sentiment'])){
           
-           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.count<3 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.counter<3 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
            
-     $row = mysqli_fetch_array($result);
+	   $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
            
-     
-      
-     $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
+	   
+	    
+	   $result2 = mysqli_query($conn,"SELECT tweet_id FROM tweet WHERE tweet = '".$text."'"); //select the 'tweet id' of specific id from the table tweet
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
-        
-      if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+    	  
+	    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
            //ip from share internet
             $ip = $_SERVER['HTTP_CLIENT_IP'];
-         }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-            //ip pass from proxy
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        }else{
-              $ip = $_SERVER['REMOTE_ADDR'];
-          }
+    	   }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        		//ip pass from proxy
+        		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+   	 		}else{
+        			$ip = $_SERVER['REMOTE_ADDR'];
+    			}
     
 
-    
-     
-     $ipdat = @json_decode(file_get_contents( 
+	  
+	   
+	   $ipdat = @json_decode(file_get_contents( 
             "http://www.geoplugin.net/json.gp?ip=" . $ip)); 
            $country =  $ipdat->geoplugin_countryName;
-     
-     $text = $row['tweet'];
-      
-     $response = $_POST['sentiment'];
+	   
+	   $text = $row['tweet'];
+ 	    
+	   $response = $_POST['sentiment'];
            $sql = "INSERT INTO response (tweet_id, ip, country, sentiment) VALUES ('$id','$ip','$country','$response')"; // insert the final result to the table called sentiment
-           $sql2 = mysql_query("
-            UPDATE tweet
-            SET points = points + 1
-            WHERE tweet.tweet = '".$text."'
-        ");
-      $conn->query($sql2);
-      
-      if ($conn->query($sql) === TRUE) {
-             $sql2 =  "DELETE FROM `tweet` WHERE `tweet_id` = '".$id."'" ; // after inserting the tweet in the response table remove that specific text from the original tweet table. 
-
-     $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
+           $sql2 ="UPDATE tweet SET counter = counter + 1 WHERE tweet.tweet = '".$text."'";
+	    
+        $conn->query($sql2);
+	    
+	    if ($conn->query($sql) === TRUE) {
+	   $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
@@ -141,7 +117,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           ፩. ጽሁፉ አዎንታዊ ከሆነ <b>አዎንታዊ</b> የሚለውን ይምረጡ<br>  
           ፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡ<br> 
           ፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ<br>
-          ፭. ጽሁፉ አዎንታዊም አሉታዊም ከሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ<br>
       </p>
       <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
             <div id="myform card-body">
@@ -155,11 +130,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label><br>
-                    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">መዝግብ</button><br>
-        <button type="button" class="btn btn-lg btn-danger" onclick="cls()" style="margin-left: 100%">ዝጋ</button>
+                    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file" style="margin: 10%;">መዝግብ</button>
+		    <button type="button" class="btn btn-lg btn-primary" onclick="cls()" style="margin: 10%;">ዝጋ</button>
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
                 </form>
           </div>
         </div>
 </body>
-
+<!-- end of html -->
