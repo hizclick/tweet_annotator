@@ -41,8 +41,8 @@ $sum = $row['value_sum'];
   <script>
 	  function cls(){
 		  if (confirm("Are you sure you want to close?") == true) {
-    				window.open("final.html")
-  			} 
+			          location.replace("final.html");
+		  } 
 	  }
   </script>
   <style type="text/css">
