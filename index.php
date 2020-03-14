@@ -57,7 +57,7 @@ $sum = $row['value_sum'];
   
 @keyframes load {
   0% { width: 0; }
-  100% { width: <?php echo ($sum*100)/9000;?> }
+  100% { width: <?php echo ($sum*100)/3000;?> }
 }
 </style>
 
