@@ -78,6 +78,7 @@ if(!isset($_POST['val'])){
            $row2 = mysqli_fetch_array($result);
            $tweet_id = $row2['tweet_id'];
            $val = 1;
+	   $m = 1
          }
 
 //after the client click on save button
