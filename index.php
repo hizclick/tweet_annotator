@@ -38,6 +38,11 @@ $sum = $row['value_sum'];
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+      $(function() {  $("#popModal").modal('show'); });
+</script>
   <script>
 	  function cls(){
 		  if (confirm("Are you sure you want to close?") == true) {
@@ -52,6 +57,7 @@ $sum = $row['value_sum'];
   100% { width: <?php echo ($sum*100)/9000;?> }
 }
 </style>
+
 </head>
 <body>
  <div class="progress">
@@ -130,6 +136,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
     <!-- end of php
       start of html -->
+	
+    <!-- Popup Modal -->
+<div id="popModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>አንኳን በደህና መጡ</p>
+        <p>ከዚህ ቀጥሎ የሚሞሉት ፎርም ላይ የሚመለከቱዋቸው ፅሁፎቸ ከየተለያዩ የአማርኛ ትዊቶች የተሰበሰቡ ሲሆኑ ፤ የዚህ ፕሮጀክት አላማውም የአማርኛ ቋንቋ ስሜት ትንተና ለመስራት የሚያስችል ናሙና ለመሰብሰብ ነው። የርሶ መልስም ለዚህ ምርምር እንደግባት ብቻ የሚያገለግል መሆኑን በአክብሮት አንገልጻለን።</p> 
+        <p>ስለትብብሮ እናመሰግናለን!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+ 
+  </div>
+</div>
     <div id="mytext">    
       <p>
         <u><b>መመሪያ:</b></u><br>
