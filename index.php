@@ -43,8 +43,9 @@ $sum = $row['value_sum'];
 <script type="text/javascript">
      $(function() { 
         var enter = $('#mo').val();
+	alert(enter);
         if(enter !=1){
-                 $("#popModal").modal('show'); }else{alert('hi')}});
+                 $("#popModal").modal('show'); }else{alert('hi');}});
 </script>
   <script>
 	  function cls(){
