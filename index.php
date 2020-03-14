@@ -41,7 +41,10 @@ $sum = $row['value_sum'];
   <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
-      $(function() {  $("#popModal").modal('show'); });
+     $(function() { 
+        var enter = $('#mo').val();
+        if(enter !=1){
+                 $("#popModal").modal('show'); }else{alert('hi')}});
 </script>
   <script>
 	  function cls(){
@@ -173,6 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="ip" class="in"  value=<?php if(isset($_GET['ip'])){echo $_GET['ip'];}else if(isset($ip)){echo $ip;}?>>
                     <input type="text" name="id"  class="in" value=<?php if(isset($id)){echo $id;}?>>
                     <input type="text" name="val" class="in" value=<?php if(isset($val)){echo $val;}?>>
+                    <input type="text" name="mod" class="in" id="mo" value=<?php if(isset($m)){echo $m;}?>/>
                     <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label><br>
