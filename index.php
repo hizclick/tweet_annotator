@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 $res = mysqli_query($conn, "SELECT count(*) from response where ip = '".$ip."'"); 
 $count = mysqli_fetch_array($res);
 $sum =  $count[0];
-
+echo $sum;
 ?>
 
 <head runat="server">
