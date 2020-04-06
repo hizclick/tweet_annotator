@@ -194,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label><br><br><br>
-		    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ቅልቅል</label><br><br>
+		    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="mixed">ቅልቅል</label><br><br>
 		    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file">መዝግብ</button><br>
                     <button type="button" class="btn btn-lg btn-danger" onclick="cls()" style="margin-left: 80%">ዝጋ</button>
 
