@@ -68,7 +68,7 @@ echo ($sum)
   
 @keyframes load {
   0% { width: 0; }
-  100% { width: <?php echo ($sum*100)/300;?> }
+  100% { width: <?php $sum*100/300;?> }
 }
 </style>
 
