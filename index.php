@@ -27,8 +27,6 @@ if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 $res = mysqli_query($conn, "SELECT count(*) from response where ip = '".$ip."'"); 
 $count = mysqli_fetch_array($res);
 $sum =  $count[0];
-
-echo ($sum)
 ?>
 
 <head runat="server">
@@ -68,7 +66,7 @@ echo ($sum)
   
 @keyframes load {
   0% { width: 0; }
-  100% { width: <?php $sum*100/300;?> }
+  100% { width: <?php echo($sum*100/300);?> }
 }
 </style>
 
