@@ -178,6 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           ፩. ጽሁፉ አዎንታዊ ከሆነ <b>አዎንታዊ</b> የሚለውን ይምረጡ<br>  
           ፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡ<br> 
           ፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ<br>
+	  ፫. አዎንታዊም አሉታዊም ከልሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ<br>
+
       </p>
       <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
             <div id="myform card-body">
@@ -192,7 +194,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label><br><br><br>
-                    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file">መዝግብ</button>
+		    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ቅልቅል</label><br><br><br>
+		    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file">መዝግብ</button>
                     <button type="button" class="btn btn-lg btn-danger" onclick="cls()" style="margin-left: 80%">ዝጋ</button>
 
 
