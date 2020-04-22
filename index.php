@@ -97,7 +97,7 @@ if(!isset($_POST['val'])){
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['sentiment'])){
           
-           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.counter<3 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.counter<1 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
            
 	   $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
