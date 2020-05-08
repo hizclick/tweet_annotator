@@ -80,7 +80,7 @@ echo $sum
     <?php
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
-           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE counter<3 order by RAND() limit 1");
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE counter<2 and tweet_id>2000 order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
@@ -97,7 +97,7 @@ if(!isset($_POST['val'])){
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['sentiment'])){
           
-           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.counter<1 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
+           $result = mysqli_query($conn,"SELECT * FROM tweet WHERE tweet.counter<1 and tweet.tweet_id>2000 order by RAND() limit 1"); //select rows randomly from the table 'tweet'
            
 	   $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->query($sql2);
 	    
 	    if ($conn->query($sql) === TRUE) {
-	   $result = mysqli_query($conn,"SELECT * FROM tweet order by RAND() limit 1");
+	   $result = mysqli_query($conn,"SELECT * FROM tweet where tweet_id>2000 order by RAND() limit 1");
            $row = mysqli_fetch_array($result);
            $text = $row['tweet'];
            $id = $row['tweet_id'];
