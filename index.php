@@ -168,15 +168,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 </div>
     <div id="mytext">    
-      <p>
-        <u><b>መመሪያ:</b></u><br>
-          ፩. ጽሁፉ አዎንታዊ ከሆነ <b>አዎንታዊ</b> የሚለውን ይምረጡ<br>  
-          ፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡ<br> 
-          ፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ<br>
-	  ፫. አዎንታዊም አሉታዊም ከልሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ<br>
+        <p><u><b>መመሪያ:</b></u><p><br>
+          <p>፩. ጽሁፉ አዎንታዊ ከሆነ <b>አዎንታዊ</b> የሚለውን ይምረጡ</p> <br>
+          <p>፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡ</p><br> 
+          <p>፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ</p><br>
+	  <p>፫. አዎንታዊም አሉታዊም ከልሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ</p><br>
 
-      </p>
-      <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
+     <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
             <div id="myform card-body">
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                   <textarea type="text" name="txt" id="txt"><?php if(isset($text)){echo $text;}?></textarea>
