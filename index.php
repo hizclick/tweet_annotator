@@ -33,7 +33,6 @@ $res = mysqli_query($conn, "SELECT count(*) from response where ip = '".$ip."'")
 $count = mysqli_fetch_array($res);
 $sum =  $count[0];
 	
-echo $sum
 ?>
 
 <head runat="server">
@@ -205,6 +204,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
+			 <?php echo $sum ?>
+
                 </form>
           </div>
         </div>
