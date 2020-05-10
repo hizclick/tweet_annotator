@@ -1,4 +1,35 @@
-  <?php
+<?php
+//declaring connection variables
+  $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+  $username = "kcpqmduod16lyyh2";
+  $password = "dahm3oxh2cakdjm8";
+  $db = "vnb273g86ehntst1";
+// Create connection
+
+  $conn = new mysqli($servername, $username, $password, $db);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+           //ip from share internet
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+         }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+            //ip pass from proxy
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }else{
+              $ip = $_SERVER['REMOTE_ADDR'];
+          }
+	
+$res = mysqli_query($conn, "SELECT count(*) from response where ip = '".$ip."'"); 
+$count = mysqli_fetch_array($res);
+$sum =  $count[0];
+	
+echo $sum
+?>
+
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
            $result = mysqli_query($conn,"SELECT * FROM tweet WHERE counter<2 and tweet_id>2000 order by RAND() limit 1");
