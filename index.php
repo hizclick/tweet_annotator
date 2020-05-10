@@ -68,13 +68,7 @@ $sum =  $count[0];
 		  } 
 	  }
   </script>
-  <style type="text/css">
-  
-@keyframes load {
-  0% { width: 0; }
-  100% { width: <?php echo($sum*100/300);?> }
-}
-</style>
+
 
 </head>
 <body>
