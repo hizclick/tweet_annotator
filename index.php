@@ -83,7 +83,7 @@
       </p>
       <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
             <div id="myform card-body">
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form method="post" action="logic.php">
                   <textarea type="text" name="txt" id="txt"><?php if(isset($text)){echo $text;}?></textarea>
                   <div id="tweet">
                     <p><?php if(isset($text)){echo $text;}?></p><br>
@@ -104,4 +104,5 @@
           </div>
         </div>
 </body>
+	    
 <!-- end of html -->
