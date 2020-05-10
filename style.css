@@ -85,6 +85,9 @@ label{
 		padding: 5%;
 		
 	}
+	#mytext{
+		width: 80%
+	}
 #mytext p{
 		font-size:20px;   
 		line-height: 1;  
