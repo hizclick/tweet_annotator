@@ -72,8 +72,6 @@ $sum =  $count[0];
 
 </head>
 <body>
-   <?php echo $sum ?>
-
     <?php
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
@@ -197,6 +195,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
+		    <p> <?php echo $sum ?> ያህል ዳታ ሞልተዋል</p>
+
                 </form>
           </div>
         </div>
