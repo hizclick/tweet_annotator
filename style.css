@@ -81,6 +81,15 @@ label{
  height: 50%
 	}
 	#top{
-		margin: 5%
+		margin: 5%;
+		padding: 5%;
+		
 	}
+#mytext p{
+		font-size:18px;   
+		line-height: 1.5;  
+		text-align: justify; 
+		margin-left: 2%;
+		
+}
 }
