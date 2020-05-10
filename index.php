@@ -72,9 +72,8 @@ $sum =  $count[0];
 
 </head>
 <body>
- <div class="progress">
-  <div class="progress-value"></div>
-	</div>
+   <?php echo $sum ?>
+
     <?php
 //for the first time when the user logged in to the system 
 if(!isset($_POST['val'])){
@@ -198,8 +197,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
-			 <?php echo $sum ?>
-
                 </form>
           </div>
         </div>
