@@ -75,15 +75,7 @@ label{
 	text-align: center;
 
 }
-@media (min-width:50px)  { body{background-color: red}  }
-@media (min-width:120px)  { body{background-color: red}  }
-@media (min-width:200px)  { body{background-color: red}  }
-@media (min-width:320px)  { body{background-color: red}  }
-@media (min-width:480px)  {body{background-color: black}  }
-@media (min-width:600px)  { body{background-color: blue} }
-@media (min-width:801px)  { body{background-color: yellow}  }
-@media (min-width:1025px) { body{background-color: brown}  }
-@media (min-width:1281px) { body{background-color: red}  }
+@media only screen and (min-width: 360px) and (max-width: 767px) { body{background-color: red} }
 
 
 
