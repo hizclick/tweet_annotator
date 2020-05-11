@@ -78,7 +78,9 @@ label{
 @media (min-width: 320px) and (max-width: 480px) {
  body{
  width: 50%;
- height: 50%
+ height: 50%;
+ background-color: blue;
+
 	}
 	#top{
 		margin: 5%;
@@ -99,7 +101,9 @@ label{
 @media (min-width: 10px) and (max-width: 320px) {
  body{
  width: 250%;
- height: 25%
+ height: 25%;
+ background-color: red;
+
 	}
 	#top{
 		margin: 5%;
