@@ -75,11 +75,15 @@ label{
 	text-align: center;
 
 }
+
 @media (max-width:410px)  { #top{width: 85%;
 				margin-left: 5%; } 
 			   .btn btn-lg btn-danger{
 				margin-left: 0%
 			     }
+			.radio-inline{
+  				font-size: 10px
+			    }
 			   p{font-size: 10px}
 	                    #tweet{width: 85%}}
 			
