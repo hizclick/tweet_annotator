@@ -76,7 +76,12 @@ label{
 
 }
 @media only screen and (min-width: 360px) and (max-width: 767px) { body{background-color: red} }
-
+@media (min-width:320px)  { /body{background-color: red}}
+@media (min-width:481px)  { body{background-color: blue} }
+@media (min-width:641px)  {body{background-color: black} }
+@media (min-width:961px)  { body{background-color: brown}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
 
 
 
