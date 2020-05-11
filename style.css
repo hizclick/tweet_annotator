@@ -80,6 +80,8 @@ label{
 @media (min-width:600px)  { body{background-color: blue} }
 @media (min-width:801px)  { body{background-color: yellow}  }
 @media (min-width:1025px) { body{background-color: brown}  }
+@media (min-width:1281px) { body{background-color: #9FA91F}  }
+
 
 
 
