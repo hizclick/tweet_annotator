@@ -8,6 +8,9 @@ input[type="text"], textarea {
 		margin-left: 2%;
 		
 }
+.btn btn-lg btn-danger{
+margin-left: 80%
+}
 .progress {
   background: black;
   justify-content: flex-start;
