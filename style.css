@@ -75,7 +75,7 @@ label{
 	text-align: center;
 
 }
-@media (max-width:410px)  { body{#top{ background-color: red}}
+@media (max-width:410px)  { #top{background-color: red}}
 			
 
 
