@@ -76,11 +76,6 @@ label{
 
 }
 @media (max-width:410px)  { body{background-color: red}}
-@media (max-width:481px)  { body{background-color: blue} }
-@media (max-width:641px)  {body{background-color: black} }
-@media (max-width:961px)  { body{background-color: brown} }
-@media (max-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (max-width:1281px) { /* hi-res laptops and desktops */ }
 
 
 
