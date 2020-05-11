@@ -75,7 +75,7 @@ label{
 	text-align: center;
 
 }
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 100px) and (max-width: 1000px) {
  body{
  width: 50%;
  height: 50%;
