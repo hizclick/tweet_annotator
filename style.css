@@ -79,7 +79,7 @@ label{
  body{
  width: 50%;
  height: 50%;
- background-color: blue;
+ background: blue;
 
 	}
 	#top{
@@ -102,7 +102,7 @@ label{
  body{
  width: 250%;
  height: 25%;
- background-color: red;
+ background: red;
 
 	}
 	#top{
@@ -121,9 +121,4 @@ label{
 		
 }
 }
-@media screen 
-  and (device-width: 360px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 4) {
-	background-color: red
-}
+
