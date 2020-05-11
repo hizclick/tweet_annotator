@@ -170,10 +170,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="mytext">    
 	<div class='dir'>
         <p><u><b>መመሪያ:</b></u><p><br>
-          <p>፩. ጽሁፉ አዎንታዊ ከሆነ <b>አዎንታዊ</b> የሚለውን ይምረጡ</p> <br>
-          <p>፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡ</p><br> 
-          <p>፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ</p><br>
-	  <p>፫. አዎንታዊም አሉታዊም ከልሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ</p><br>
+          <p>፩. ጽሁፉ አዎንታዊ ከሆነ <b>አዎንታዊ</b> የሚለውን ይምረጡ</p>
+          <p>፪. ጽሁፉ አሉታዊ ከሆነ <b>አሉታዊ</b> የሚለውን ይምረጡ</p>
+          <p>፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ</p>
+	  <p>፫. አዎንታዊም አሉታዊም ከልሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ</p>
 	</div>
 
      <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
