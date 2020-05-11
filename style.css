@@ -75,7 +75,7 @@ label{
 	text-align: center;
 
 }
-@media (min-width:320px)  { body{background-color: red}}
+@media (max-width:410px)  { body{background-color: red}}
 @media (min-width:481px)  { body{background-color: blue} }
 @media (min-width:641px)  {body{background-color: black} }
 @media (min-width:961px)  { body{background-color: brown} }
