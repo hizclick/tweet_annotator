@@ -75,7 +75,7 @@ label{
 	text-align: center;
 
 }
-@media (min-width: 100px) and (max-width: 1000px) {
+@media (min-width: 10px) and (max-width: 1200px) {
  body{
  width: 50%;
  height: 50%;
@@ -98,27 +98,5 @@ label{
 		
 }
 }
-@media (min-width: 10px) and (max-width: 320px) {
- body{
- width: 250%;
- height: 25%;
- background: red;
 
-	}
-	#top{
-		margin: 5%;
-		padding: 5%;
-		
-	}
-	#mytext{
-		width: 100%
-	}
-#mytext p{
-		font-size:20px;   
-		line-height: 1;  
-		text-align: justify; 
-		margin-left: 2%;
-		
-}
-}
 
