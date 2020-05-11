@@ -191,7 +191,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
 		    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="mixed">ቅልቅል</label><br><br><br>
 		    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file">መዝግብ</button><br>
-                    <button type="button" class="btn btn-lg btn-danger" onclick="cls()">ዝጋ</button>
+                    <button type="button" class="btn btn-lg btn-danger" onclick="cls()" style="margin-left: 80%
+">ዝጋ</button>
 
 
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
