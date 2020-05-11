@@ -75,9 +75,9 @@ label{
 	text-align: center;
 
 }
-@media (max-width:410px)  { #top{width: 75%;
+@media (max-width:410px)  { #top{width: 85%;
 				margin-left: 5%; } 
-	                    #tweet{width: 75%}}
+	                    #tweet{width: 85%}}
 			
 
 
