@@ -78,7 +78,7 @@ label{
 @media (max-width:410px)  { #top{width: 85%;
 				margin-left: 5%; } 
 			   .btn btn-lg btn-danger{
-				margin-left: 5%
+				margin-left: 0%
 			     }
 	                    #tweet{width: 85%}}
 			
