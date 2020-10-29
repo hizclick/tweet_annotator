@@ -175,29 +175,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <p>፫. አዎንታዊም አሉታዊም ካልሆነ <b>ገለልተኛ</b> የሚለውን ይምረጡ</p>
 	  <p>፫. አዎንታዊም አሉታዊም ከልሆነ <b>ቅልቅል</b> የሚለውን ይምረጡ</p>
 	</div>
+<!-- end of html  ኧረ ተው! የሴት ሹመት ከበዛ ወዲህ ነው አገር እየተበጣበጠ ያለው። -->
+
+
+
 
      <div  id="top" class="card text-center border border-danger"> <!-- the top card that contain the instraction for filling the form -->
             <div id="myform card-body">
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                   <textarea type="text" name="txt" id="txt"><?php if(isset($text)){echo $text;}?></textarea>
                   <div id="tweet">
-                    <p><?php if(isset($text)){echo $text;}?></p><br>
+                    <p><?php echo "ኧረ ተው! የሴት ሹመት ከበዛ ወዲህ ነው አገር እየተበጣበጠ ያለው።";?></p><br>
                     <input type="text" name="ip" class="in"  value=<?php if(isset($_GET['ip'])){echo $_GET['ip'];}else if(isset($ip)){echo $ip;}?>>
                     <input type="text" name="id"  class="in" value=<?php if(isset($id)){echo $id;}?>>
                     <input type="text" name="val" class="in" value=<?php if(isset($val)){echo $val;}?>>
                     <input type="text" name="mod" class="in" id="mo" value=<?php if(isset($m)){echo $m;}?>/>
-                    <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">አዎንታዊ</label>
-                    <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አሉታዊ</label>
-                    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">ገለልተኛ</label>
-		    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="mixed">ቅልቅል</label><br><br><br>
+                    <label class="radio-inline" style=""><input class="radio-inline" id="pos" type="radio" name="sentiment" value="positive">የጥላቻ ንግግር</label>
+                    <label class="radio-inline"><input class="radio-inline" id="neg" type="radio" name="sentiment" value="negative">አስፀያፊ</label>
+                    <label class="radio-inline"><input class="radio-inline" id="neu" type="radio" name="sentiment" value="nuetral">መደበኛ</label>
 		    <button type="submit" class="btn btn-lg btn-primary" name="file" id="file">መዝግብ</button><br>
                     <button type="button" class="btn btn-lg btn-danger" onclick="cls()" style="margin-left: 80%
 ">ዝጋ</button>
-
-
                     <p style="color: red"><?php if(isset($error)){echo $error;}?></p>
-		    <p> <?php echo $sum ?> ያህል ዳታ ሞልተዋል</p>
-
                 </form>
           </div>
         </div>
