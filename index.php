@@ -8,7 +8,7 @@ if ( window.history.replaceState ) {
 //declaring connection variables
   $servername = "kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
   $username = "kcpqmduod16lyyh2";
-  $password = "dahm3oxh2cakdjm8";
+  $password = "dahm3oxh2cakddjm8";
   $db = "vnb273g86ehntst1";
 // Create connection
 
